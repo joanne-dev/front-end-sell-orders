@@ -1,5 +1,6 @@
-
 export type OderInformation = {
+  creationDate: string;
+  sellerStore: string;
   orderNumber: number;
   buyerFullName: string;
   buyerPhoneNumber: number;
@@ -7,6 +8,7 @@ export type OderInformation = {
 };
 
 export type ShippingInfo = {
+  method: string;
   address: string;
   city: string;
   region: string;
@@ -25,9 +27,9 @@ export type PromiseDates =  {
 };
 
 export type Products =  {
-  name: string;
-  qty: number;
-  weight: number;
+  productName: string;
+  productQty: number;
+  productWeight: number;
 };
 
 export type OrderDetails = {

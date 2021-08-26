@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  background-image: linear-gradient(
+      90deg, #4f1caa, #22195f 54%);
+  height: 80px;
+  padding: 10px;
+  align-items: center;
+  &__logo {
+    height: 56.88px;
+    width: 180px;
+  }
+  &__title {
+    color: aliceblue;
+  }
+  &__contain {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    color: aliceblue;
+  }
+}

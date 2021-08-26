@@ -1,0 +1,48 @@
+.content-super{
+  display: block;
+  margin-bottom: 40px;
+  &__form {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 60%;
+    &--order {
+      width: 100%;
+    }
+  }
+}
+.field {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+.btn-danger{
+  background-image: linear-gradient(
+      180deg
+    , darkred, darkred);
+  width: 100%;
+}
+.btn-danger:hover{
+  background-image: linear-gradient(
+      180deg
+    , red, red);
+  width: 100%;
+}
+.table{
+  width: 100%;
+}
+.form-control-input{
+  width: 90%;
+}
+.button-disable {
+  background-image: linear-gradient(
+      180deg
+    , #bababa, #bababa);
+}
+.button-disable:hover {
+  cursor: auto;
+}
+.fields-groups{
+  display: flex;
+}
+

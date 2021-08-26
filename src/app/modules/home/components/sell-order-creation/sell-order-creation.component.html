@@ -1,0 +1,182 @@
+<div class="content-super">
+  <app-header [title]="title"></app-header>
+  <app-go-back></app-go-back>
+  <div class="content-super__form">
+    <form class="content-super__form--order" autocomplete="off" [formGroup]="orderForm" (ngSubmit)="saveOrder()">
+      <div class="fields-groups">
+        <div class="field">
+          <label>Seller store</label>
+          <input class="form-control"
+                 type="text"
+                 formControlName="sellerStore"
+          >
+          <small *ngIf="invalidSellerStore" class="text-danger">
+            Invalid seller store
+          </small>
+        </div>
+        <div class="field">
+          <label>Shipping method</label>
+
+            <select formControlName="shippingMethod">
+              <option [ngValue]="null" disabled>Choose the shipping method</option>
+              <option *ngFor="let shippingM of shippingMethods" [ngValue]="shippingM">
+                {{ shippingM.name }}
+              </option>
+            </select>
+            <small *ngIf="invalidShippingMethod" class="text-danger">
+              Invalid shipping method
+            </small>
+
+        </div>
+      </div>
+     <div class="fields-groups">
+       <div class="field">
+         <label>External order number</label>
+         <input class="form-control"
+                type="number"
+                formControlName="orderNumber"
+         >
+         <small *ngIf="invalidOrderNumber" class="text-danger">
+           Invalid external order number
+         </small>
+       </div>
+
+       <div class="field">
+         <label>Buyer full name</label>
+         <input class="form-control"
+                type="text"
+                formControlName="buyerFullName"
+         >
+         <small *ngIf="invalidBuyerFullName" class="text-danger">
+           Invalid buyer full name
+         </small>
+       </div>
+     </div>
+     <div class="fields-groups">
+       <div class="field">
+         <label>Buyer phone number</label>
+         <input class="form-control"
+                type="text"
+                formControlName="buyerPhoneNumber"
+                [maxlength]=10
+         >
+         <small *ngIf="invalidBuyerPhoneNumber" class="text-danger">
+           Invalid buyer phone number
+         </small>
+       </div>
+
+       <div class="field">
+         <label>Buyer email</label>
+         <input class="form-control"
+                type="text"
+                formControlName="buyerEmail"
+         >
+         <small *ngIf="invalidEmail" class="text-danger">
+           Invalid email
+         </small>
+       </div>
+     </div>
+      <div class="fields-groups">
+        <div class="field">
+          <label>Shipping address</label>
+          <input class="form-control"
+                 type="text"
+                 formControlName="shippingAddress"
+          >
+          <small *ngIf="invalidShippingAddress" class="text-danger">
+            Invalid shipping address
+          </small>
+        </div>
+
+        <div class="field">
+          <label>Shipping city</label>
+          <input class="form-control"
+                 type="text"
+                 formControlName="shippingCity"
+          >
+          <small *ngIf="invalidShippingCity" class="text-danger">
+            Invalid shipping city
+          </small>
+        </div>
+      </div>
+      <div class="fields-groups">
+        <div class="field">
+          <label>Shipping region</label>
+          <input class="form-control"
+                 type="text"
+                 formControlName="shippingRegion"
+          >
+          <small *ngIf="invalidShippingRegion" class="text-danger">
+            Invalid shipping region
+          </small>
+        </div>
+
+        <div class="field">
+          <label>Shipping country</label>
+          <input class="form-control"
+                 type="text"
+                 formControlName="shippingCountry"
+          >
+          <small *ngIf="invalidShippingCountry" class="text-danger">
+            Invalid shipping country
+          </small>
+        </div>
+
+      </div>
+
+      <div class="field">
+        <label>Line items</label>
+        <table class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Product name</th>
+            <th>product qty</th>
+            <th>product weight</th>
+            <th>      </th>
+          </tr>
+          </thead>
+          <tbody formArrayName="lineItems">
+          <tr *ngFor="let control of lineItems.controls; let i = index" [formGroupName]="i">
+            <td> {{ i + 1 }} </td>
+            <td>
+              <input class="form-control-input"
+                     type="text"
+                     [formControlName]="'productName'">
+            </td>
+            <td>
+              <input class="form-control-input"
+                     type="number"
+                     [formControlName]="'productQty'">
+            </td>
+            <td>
+              <input class="form-control-input"
+                     type="number"
+                     placeholder="10 Kg."
+                     [formControlName]="'productWeight'">
+            </td>
+            <td>
+              <button class="btn-danger"
+                      (click)="deleteLineItem(i)">
+                Delete
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-primary mt-3 mb-5 btn-block"
+                type="button"
+                (click)="addLineItem()">
+          + Add
+        </button>
+      </div>
+      <div class="center-items">
+        <div>
+          <button [class.button-disable]="orderForm.invalid || loading">
+            <em class="fas fa-spinner fa-spin" *ngIf="loading"></em>
+            Create order</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

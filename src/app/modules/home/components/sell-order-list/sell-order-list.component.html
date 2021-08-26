@@ -1,0 +1,42 @@
+<div class="orders-container">
+  <app-header [title]="title"></app-header>
+  <div class="orders-container__body">
+    <div class="orders-container__body__title center-items">
+      <h1>Sell order list</h1>
+    </div>
+    <div *ngIf="areThereOrders()">
+      <div  class="orders-container__body__content center-items">
+        <p id="table-desc"></p>
+        <table class="orders-container__body__content--table" aria-describedby="table-desc">
+          <thead>
+          <tr>
+            <th>Sell order number</th>
+            <th>Seller store</th>
+            <th>Creation date</th>
+            <th>Shipping method</th>
+            <th>Show details</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="tr-items" *ngFor="let order of orders">
+            <td>{{order?.orderInfo?.orderNumber}}</td>
+            <td>{{order?.orderInfo?.sellerStore}}</td>
+            <td>{{order?.orderInfo?.creationDate}}</td>
+            <td>{{order?.shippingInfo?.method}}</td>
+            <td class="link-details" (click)="showDetails(order)">Show details</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="center-items">
+        <button (click)="addOrder()">Create order</button>
+      </div>
+    </div>
+    <div *ngIf="!areThereOrders()" class="orders-container__body__no-orders center-items">
+      <div class="orders-container__body__no-orders--info">
+        <em class="fas fa-plus-circle fa-5x logo" (click)="addOrder()"></em>
+        <p>Create an order!</p>
+      </div>
+    </div>
+  </div>
+</div>

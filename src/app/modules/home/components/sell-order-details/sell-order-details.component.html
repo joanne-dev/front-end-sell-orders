@@ -1,0 +1,54 @@
+<div class="content-super">
+  <app-header [title]="title"></app-header>
+  <app-go-back></app-go-back>
+  <div class="center-items">
+
+    <div class="info">
+      <div class="groups">
+        <div class="card">
+          <em class="fas fa-table fa-3x"></em>
+          <h2>Order information</h2>
+          <p>external order number: <span>{{orderDetail?.orderInfo?.orderNumber}}</span></p>
+          <p>buyer full name: <span>{{orderDetail?.orderInfo?.buyerFullName}}</span></p>
+          <p>buyer phone number: <span>{{orderDetail?.orderInfo?.buyerPhoneNumber}}</span></p>
+          <p>buyer email: <span>{{orderDetail?.orderInfo?.buyerEmail}}</span></p>
+        </div>
+
+        <div class="card">
+          <em class="fas fa-map-marker-alt fa-3x"></em>
+          <h2>Shipping info</h2>
+          <p>shipping address: <span>{{orderDetail?.shippingInfo?.address}}</span></p>
+          <p>shipping city: <span>{{orderDetail?.shippingInfo?.city}}</span></p>
+          <p>shipping region: <span>{{orderDetail?.shippingInfo?.region}}</span></p>
+          <p>shipping country: <span>{{orderDetail?.shippingInfo?.country}}</span></p>
+        </div>
+      </div>
+
+      <div class="groups">
+        <div class="card">
+          <em class="fas fa-calendar-alt fa-3x"></em>
+          <h2>Promise dates</h2>
+          <p>pack promise min: <span>{{orderDetail?.promiseDates?.packPromiseMin}}</span></p>
+          <p>pack promise max: <span>{{orderDetail?.promiseDates?.packPromiseMax}}</span></p>
+          <p>ship promise min: <span>{{orderDetail?.promiseDates?.shipPromiseMin}}</span></p>
+          <p>ship promise max: <span>{{orderDetail?.promiseDates?.shipPromiseMax}}</span></p>
+          <p>delivery promise min: <span>{{orderDetail?.promiseDates?.deliveryPromiseMin}}</span></p>
+          <p>delivery promise max: <span>{{orderDetail?.promiseDates?.deliveryPromiseMax}}</span></p>
+          <p>ready pickup promise min: <span>{{orderDetail?.promiseDates?.readyPickupPromiseMin}}</span></p>
+          <p>ready pickup promise max: <span>{{orderDetail?.promiseDates?.readyPickupPromiseMax}}</span></p>
+        </div>
+
+        <div class="card">
+          <em class="fas fa-shopping-cart fa-3x"></em>
+          <h2>Line items</h2>
+          <div *ngFor = "let product of orderDetail?.items">
+            <p>Product name: <span>{{product.productName}}</span></p>
+            <p>Product qtr: <span>{{product.productQty}}</span></p>
+            <p>Product weight: <span>{{product.productWeight}} kg</span></p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>

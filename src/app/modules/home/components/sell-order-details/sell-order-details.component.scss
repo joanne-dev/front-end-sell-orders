@@ -1,0 +1,41 @@
+.content-super {
+
+}
+
+.info {
+  display: block;
+}
+.groups{
+  display: flex;
+}
+
+.card {
+  margin: 15px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 3px 3px 15px 0 hsl(0deg 0% 66% / 30%);
+  color: #66727a;
+  justify-content: center;
+  -webkit-box-align: center;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  padding: 30px 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  display: flex;
+  width: 70%;
+}
+.card:hover{
+  background-color: #4f1caa;
+  color: white;
+}
+p {
+  font-weight: bold;
+}
+p > span {
+  font-weight: normal;
+}
+em {
+  cursor: auto;
+}

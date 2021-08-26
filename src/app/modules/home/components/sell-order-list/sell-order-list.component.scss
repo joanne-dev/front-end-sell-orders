@@ -1,0 +1,42 @@
+.orders-container {
+  &__body {
+    &__title {
+
+    }
+
+    &__content {
+      width: 70%;
+      &--table {
+        width: 100%;
+      }
+    }
+
+    &__no-orders {
+      height: 400px;
+
+      &--info {
+        display: block;
+        align-content: space-between;
+      }
+    }
+  }
+}
+.link-details {
+  color: #4827be;
+  text-decoration: underline;
+}
+thead {
+  background-color: #b9a4e5;
+  height: 40px;
+}
+td {
+  text-align: center;
+  height: 35px;
+}
+.tr-items:hover {
+  background-color: #25cb80;
+  cursor: pointer;
+}
+.logo {
+  color:  #15ff99;
+}
