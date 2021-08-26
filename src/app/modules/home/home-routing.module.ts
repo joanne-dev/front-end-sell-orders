@@ -7,7 +7,8 @@ import {SellOrderDetailsComponent} from './components/sell-order-details/sell-or
 export const homeRoutes: Routes = [
   {path: 'order-list', component: SellOrderListComponent},
   {path: 'order-creation', component: SellOrderCreationComponent},
-  {path: 'order-details', component: SellOrderDetailsComponent}
+  {path: 'order-details', component: SellOrderDetailsComponent},
+  {path: '', redirectTo: 'order-list', pathMatch: 'full'},
 ];
 @NgModule({
   exports: [
