@@ -18,7 +18,6 @@ export class SellOrderListComponent implements OnInit {
   }
   getOrders(): void {
     this.orders = JSON.parse(this.storageService.getLocalStorage('orders'));
-    console.log(this.orders);
   }
 
   addOrder(): void {

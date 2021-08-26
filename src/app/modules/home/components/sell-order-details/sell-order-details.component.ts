@@ -18,11 +18,8 @@ export class SellOrderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      console.log(params.id);
       const orders = JSON.parse(this.storageService.getLocalStorage('orders'));
-      console.log('orders:: ', orders[1]);
       this.orderDetail = orders.filter(order => String(order.orderInfo.orderNumber) === params.id)[0];
-      console.log('this.orderDetail: ', this.orderDetail);
     });
   }
 }

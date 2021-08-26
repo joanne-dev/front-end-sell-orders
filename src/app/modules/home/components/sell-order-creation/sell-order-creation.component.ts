@@ -90,7 +90,6 @@ export class SellOrderCreationComponent implements OnInit {
   }
   createListeners(): void {
     this.orderForm.valueChanges.subscribe( valor => {
-      console.log(valor);
      });
   }
 
